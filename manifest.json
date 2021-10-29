@@ -1,7 +1,7 @@
 {
   "name": "csgiftcard",
   "vendor": "decorest",
-  "version": "0.0.1",
+  "version": "0.0.2-beta.0",
   "title": "csgiftcarde",
   "description": "csgiftcard",
   "mustUpdateAt": "2022-01-04",
@@ -11,8 +11,7 @@
     "node": "6.x",
     "docs": "0.x"
   },
-  "scripts": {
-  },
+  "scripts": {},
   "credentialType": "absolute",
   "policies": [
     {
