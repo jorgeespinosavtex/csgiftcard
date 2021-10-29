@@ -70,7 +70,7 @@ export async function email(ctx: Context, next: () => Promise<any>) {
     throw new UserInputError('Code is required') // Wrapper for a Bad Request (400) HTTP Error. Check others in https://github.com/vtex/node-vtex-api/blob/fd6139349de4e68825b1074f1959dd8d0c8f4d5b/src/errors/index.ts
   }
 
-  const resp = axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+  axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
 
   ctx.body = {
     perrito: 'guau',
