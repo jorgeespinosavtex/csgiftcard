@@ -82,7 +82,7 @@ export async function email(ctx: Context, next: () => Promise<any>) {
     }
   } catch (e) {
     ctx.body = {
-      respuesta: e,
+      respuesta: 'saltar',
     }
   }
 

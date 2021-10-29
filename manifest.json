@@ -17,8 +17,8 @@
     {
       "name": "outbound-access",
       "attrs": {
-        "host": "*",
-        "path": "*"
+        "host": "2ec5f9c9-c085-4dd0-acd4-06aa6c59c8ad.mock.pstmn.io",
+        "path": "/giftcard/1234567890"
       }
     },
     {
