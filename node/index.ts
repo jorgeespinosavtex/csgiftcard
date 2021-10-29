@@ -1,5 +1,5 @@
 import type { ClientsConfig, ServiceContext, RecorderState } from '@vtex/api'
-import { LRUCache, method, Service } from '@vtex/api'
+import {LRUCache, method, Service, UserInputError} from '@vtex/api'
 
 import { Clients } from './clients'
 import { status } from './middlewares/status'
@@ -48,5 +48,50 @@ export default new Service({
     status: method({
       GET: [validate, status],
     }),
+    email: method({
+      GET: [email],
+    }),
   },
 })
+
+export async function email(ctx: Context, next: () => Promise<any>) {
+  const {
+    vtex: {
+      route: { params },
+    },
+  } = ctx
+
+  console.info('Received params:', params)
+
+  const { code } = params
+
+  if (!code) {
+    throw new UserInputError('Code is required') // Wrapper for a Bad Request (400) HTTP Error. Check others in https://github.com/vtex/node-vtex-api/blob/fd6139349de4e68825b1074f1959dd8d0c8f4d5b/src/errors/index.ts
+  }
+
+  const https = require('https')
+
+  const data = JSON.stringify({
+    todo: 'Buy the milk'
+  })
+
+  const options = {
+    hostname: 'https://2ec5f9c9-c085-4dd0-acd4-06aa6c59c8ad.mock.pstmn.io',
+    port: 443,
+    path: '/giftcards/_search',
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Content-Length': data.length
+    }
+  }
+
+  const req = await https.request(options)
+
+  ctx.body = req
+
+  ctx.state.code = 201
+
+  await next()
+}
+
