@@ -1,3 +1,5 @@
+import * as https from 'https'
+
 import type { InstanceOptions, IOContext, IOResponse } from '@vtex/api'
 import { ExternalClient } from '@vtex/api'
 
@@ -41,6 +43,10 @@ export class Email extends ExternalClient {
   }
 
   public async getEmail(): Promise<string> {
+    const agent = new https.Agent({
+      rejectUnauthorized: false,
+    })
+
     return this.http.post(
       `Export/GenerateExport`,
       JSON.stringify({
@@ -53,6 +59,7 @@ export class Email extends ExternalClient {
         recipients: 'jorge.espinosa@vtex.com.br',
       }),
       {
+        httpsAgent: agent,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
           Cookie:
