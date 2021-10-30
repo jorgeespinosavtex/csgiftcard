@@ -1,5 +1,3 @@
-import * as https from 'https'
-
 import type { InstanceOptions, IOContext, IOResponse } from '@vtex/api'
 import { ExternalClient } from '@vtex/api'
 
@@ -43,10 +41,6 @@ export class Email extends ExternalClient {
   }
 
   public async getEmail(): Promise<string> {
-    const agent = new https.Agent({
-      rejectUnauthorized: false,
-    })
-
     return this.http.post(
       `Export/GenerateExport`,
       JSON.stringify({
@@ -58,11 +52,11 @@ export class Email extends ExternalClient {
         recipients: 'jorge.espinosa@vtex.com.br',
       }),
       {
-        httpsAgent: agent,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          'X-VTEX-Use-Https': true,
           Cookie:
-            'VtexIdclientAutCookie=eyJhbGciOiJFUzI1NiIsImtpZCI6IkE5MDZFOTlFRkUwNjVCMDdDOEMzNzY2RjU5RDE2QzBCMkMzNDA0MjEiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJ2dGV4YXBwa2V5LWRlY29yZXN0LVZJV0FEViIsImFjY291bnQiOiJ2dGV4IiwiYXVkaWVuY2UiOiJhZG1pbiIsImV4cCI6MTYzNTU4MjMzMywidXNlcklkIjoiNDI0MmY3ZmUtNjFkOC00MzY2LThiZDAtZGI1YWNmMzk5YTZmIiwiaWF0IjoxNjM1NTYwNzMzLCJpc3MiOiJ0b2tlbi1lbWl0dGVyIiwianRpIjoiNTNmM2M1YTAtNzg4ZC00NTU1LWFjYTMtNzEwMDU1YmIwMTA2In0.icJCEtTrrayXYGvM947d1LIask8WqBbr3VxSKxx5epxfeqrLp-5pyLIWgulDTd9cOiMw1SqEAYaAmXzpufnSlw;',
+            'VtexIdclientAutCookie=eyJhbGciOiJFUzI1NiIsImtpZCI6IjU4QTlBODhENDBBMkZBN0U4NzQwQTU5MzFFREUwRUFGMEMxN0E4RTMiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJ2dGV4YXBwa2V5LWRlY29yZXN0LVZJV0FEViIsImFjY291bnQiOiJ2dGV4IiwiYXVkaWVuY2UiOiJhZG1pbiIsImV4cCI6MTYzNTYzMDA3MiwidXNlcklkIjoiNDI0MmY3ZmUtNjFkOC00MzY2LThiZDAtZGI1YWNmMzk5YTZmIiwiaWF0IjoxNjM1NjA4NDcyLCJpc3MiOiJ0b2tlbi1lbWl0dGVyIiwianRpIjoiZjgwZmMwYmItN2FkZC00YzZjLTlkNGEtYjQ2Y2ZhMmE5NWQ1In0.BvBGXbQiPJ1IGoEr7t3OYGol6NkfI_Q5QOE-g7nJKjMYdfb6isVMv0ldA5Kt5PG6z_1s46XD61S4wq58vTuW2w;',
         },
         metric: 'email-post',
       }
@@ -70,10 +64,6 @@ export class Email extends ExternalClient {
   }
 
   public async getEmailWithHeaders(): Promise<IOResponse<string>> {
-    const agent = new https.Agent({
-      rejectUnauthorized: false,
-    })
-
     return this.http.postRaw(
       `Export/GenerateExport`,
       JSON.stringify({
@@ -85,11 +75,11 @@ export class Email extends ExternalClient {
         recipients: 'jorge.espinosa@vtex.com.br',
       }),
       {
-        httpsAgent: agent,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          'X-VTEX-Use-Https': true,
           Cookie:
-            'VtexIdclientAutCookie=eyJhbGciOiJFUzI1NiIsImtpZCI6IkE5MDZFOTlFRkUwNjVCMDdDOEMzNzY2RjU5RDE2QzBCMkMzNDA0MjEiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJ2dGV4YXBwa2V5LWRlY29yZXN0LVZJV0FEViIsImFjY291bnQiOiJ2dGV4IiwiYXVkaWVuY2UiOiJhZG1pbiIsImV4cCI6MTYzNTU4MjMzMywidXNlcklkIjoiNDI0MmY3ZmUtNjFkOC00MzY2LThiZDAtZGI1YWNmMzk5YTZmIiwiaWF0IjoxNjM1NTYwNzMzLCJpc3MiOiJ0b2tlbi1lbWl0dGVyIiwianRpIjoiNTNmM2M1YTAtNzg4ZC00NTU1LWFjYTMtNzEwMDU1YmIwMTA2In0.icJCEtTrrayXYGvM947d1LIask8WqBbr3VxSKxx5epxfeqrLp-5pyLIWgulDTd9cOiMw1SqEAYaAmXzpufnSlw;',
+            'VtexIdclientAutCookie=eyJhbGciOiJFUzI1NiIsImtpZCI6IjU4QTlBODhENDBBMkZBN0U4NzQwQTU5MzFFREUwRUFGMEMxN0E4RTMiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJ2dGV4YXBwa2V5LWRlY29yZXN0LVZJV0FEViIsImFjY291bnQiOiJ2dGV4IiwiYXVkaWVuY2UiOiJhZG1pbiIsImV4cCI6MTYzNTYzMDA3MiwidXNlcklkIjoiNDI0MmY3ZmUtNjFkOC00MzY2LThiZDAtZGI1YWNmMzk5YTZmIiwiaWF0IjoxNjM1NjA4NDcyLCJpc3MiOiJ0b2tlbi1lbWl0dGVyIiwianRpIjoiZjgwZmMwYmItN2FkZC00YzZjLTlkNGEtYjQ2Y2ZhMmE5NWQ1In0.BvBGXbQiPJ1IGoEr7t3OYGol6NkfI_Q5QOE-g7nJKjMYdfb6isVMv0ldA5Kt5PG6z_1s46XD61S4wq58vTuW2w;',
         },
         metric: 'email-post',
       }
