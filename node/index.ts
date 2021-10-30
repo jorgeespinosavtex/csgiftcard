@@ -3,7 +3,6 @@ import { LRUCache, method, Service, UserInputError } from '@vtex/api'
 
 import { Clients } from './clients'
 import { status } from './middlewares/status'
-import { test } from './middlewares/test'
 import { validate } from './middlewares/validate'
 
 const TIMEOUT_MS = 800
@@ -57,7 +56,7 @@ export default new Service({
       GET: [email],
     }),
     test: method({
-      GET: [test],
+      GET: [status],
     }),
   },
 })

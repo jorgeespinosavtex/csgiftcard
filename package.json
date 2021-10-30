@@ -6,11 +6,6 @@
     "lint": "eslint --ext js,jsx,ts,tsx .",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json}\""
   },
-  "jest": {
-    "transformIgnorePatterns": [
-      "/node/(?!(clients|middleware)/)"
-    ]
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
