@@ -55,6 +55,8 @@ export class Email extends ExternalClient {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
           'X-VTEX-Use-Https': true,
+          'Proxy-Authorization':
+            'eyJhbGciOiJFUzI1NiIsImtpZCI6IjU4QTlBODhENDBBMkZBN0U4NzQwQTU5MzFFREUwRUFGMEMxN0E4RTMiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJ2dGV4YXBwa2V5LWRlY29yZXN0LVZJV0FEViIsImFjY291bnQiOiJ2dGV4IiwiYXVkaWVuY2UiOiJhZG1pbiIsImV4cCI6MTYzNTYzMDA3MiwidXNlcklkIjoiNDI0MmY3ZmUtNjFkOC00MzY2LThiZDAtZGI1YWNmMzk5YTZmIiwiaWF0IjoxNjM1NjA4NDcyLCJpc3MiOiJ0b2tlbi1lbWl0dGVyIiwianRpIjoiZjgwZmMwYmItN2FkZC00YzZjLTlkNGEtYjQ2Y2ZhMmE5NWQ1In0.BvBGXbQiPJ1IGoEr7t3OYGol6NkfI_Q5QOE-g7nJKjMYdfb6isVMv0ldA5Kt5PG6z_1s46XD61S4wq58vTuW2w',
           Cookie:
             'VtexIdclientAutCookie=eyJhbGciOiJFUzI1NiIsImtpZCI6IjU4QTlBODhENDBBMkZBN0U4NzQwQTU5MzFFREUwRUFGMEMxN0E4RTMiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJ2dGV4YXBwa2V5LWRlY29yZXN0LVZJV0FEViIsImFjY291bnQiOiJ2dGV4IiwiYXVkaWVuY2UiOiJhZG1pbiIsImV4cCI6MTYzNTYzMDA3MiwidXNlcklkIjoiNDI0MmY3ZmUtNjFkOC00MzY2LThiZDAtZGI1YWNmMzk5YTZmIiwiaWF0IjoxNjM1NjA4NDcyLCJpc3MiOiJ0b2tlbi1lbWl0dGVyIiwianRpIjoiZjgwZmMwYmItN2FkZC00YzZjLTlkNGEtYjQ2Y2ZhMmE5NWQ1In0.BvBGXbQiPJ1IGoEr7t3OYGol6NkfI_Q5QOE-g7nJKjMYdfb6isVMv0ldA5Kt5PG6z_1s46XD61S4wq58vTuW2w;',
         },
@@ -78,6 +80,8 @@ export class Email extends ExternalClient {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
           'X-VTEX-Use-Https': true,
+          'Proxy-Authorization':
+            'eyJhbGciOiJFUzI1NiIsImtpZCI6IjU4QTlBODhENDBBMkZBN0U4NzQwQTU5MzFFREUwRUFGMEMxN0E4RTMiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJ2dGV4YXBwa2V5LWRlY29yZXN0LVZJV0FEViIsImFjY291bnQiOiJ2dGV4IiwiYXVkaWVuY2UiOiJhZG1pbiIsImV4cCI6MTYzNTYzMDA3MiwidXNlcklkIjoiNDI0MmY3ZmUtNjFkOC00MzY2LThiZDAtZGI1YWNmMzk5YTZmIiwiaWF0IjoxNjM1NjA4NDcyLCJpc3MiOiJ0b2tlbi1lbWl0dGVyIiwianRpIjoiZjgwZmMwYmItN2FkZC00YzZjLTlkNGEtYjQ2Y2ZhMmE5NWQ1In0.BvBGXbQiPJ1IGoEr7t3OYGol6NkfI_Q5QOE-g7nJKjMYdfb6isVMv0ldA5Kt5PG6z_1s46XD61S4wq58vTuW2w',
           Cookie:
             'VtexIdclientAutCookie=eyJhbGciOiJFUzI1NiIsImtpZCI6IjU4QTlBODhENDBBMkZBN0U4NzQwQTU5MzFFREUwRUFGMEMxN0E4RTMiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJ2dGV4YXBwa2V5LWRlY29yZXN0LVZJV0FEViIsImFjY291bnQiOiJ2dGV4IiwiYXVkaWVuY2UiOiJhZG1pbiIsImV4cCI6MTYzNTYzMDA3MiwidXNlcklkIjoiNDI0MmY3ZmUtNjFkOC00MzY2LThiZDAtZGI1YWNmMzk5YTZmIiwiaWF0IjoxNjM1NjA4NDcyLCJpc3MiOiJ0b2tlbi1lbWl0dGVyIiwianRpIjoiZjgwZmMwYmItN2FkZC00YzZjLTlkNGEtYjQ2Y2ZhMmE5NWQ1In0.BvBGXbQiPJ1IGoEr7t3OYGol6NkfI_Q5QOE-g7nJKjMYdfb6isVMv0ldA5Kt5PG6z_1s46XD61S4wq58vTuW2w;',
         },
