@@ -8,7 +8,7 @@
   },
   "jest": {
     "transformIgnorePatterns": [
-      "/node/clients/test.ts"
+      "/src/node/clients/test.ts"
     ]
   },
   "husky": {
