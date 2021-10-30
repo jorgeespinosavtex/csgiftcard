@@ -13,10 +13,6 @@
     "email": {
       "path": "/_v/email/:code",
       "public": true
-    },
-    "test": {
-      "path": "/_v/test/:code",
-      "public": true
     }
   }
 }

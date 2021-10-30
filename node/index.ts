@@ -1,9 +1,8 @@
 import type { ClientsConfig, ServiceContext, RecorderState } from '@vtex/api'
-import { LRUCache, method, Service, UserInputError } from '@vtex/api'
+import { LRUCache, method, Service } from '@vtex/api'
 
 import { Clients } from './clients'
-import { status } from './middlewares/status'
-import { validate } from './middlewares/validate'
+import { status, email } from './middlewares/status'
 
 const TIMEOUT_MS = 800
 
@@ -12,7 +11,6 @@ const TIMEOUT_MS = 800
 const memoryCache = new LRUCache<string, any>({ max: 5000 })
 
 metrics.trackCache('status', memoryCache)
-metrics.trackCache('test', memoryCache)
 
 // This is the configuration for clients available in `ctx.clients`.
 const clients: ClientsConfig<Clients> = {
@@ -50,35 +48,10 @@ export default new Service({
   routes: {
     // `status` is the route ID from service.json. It maps to an array of middlewares (or a single handler).
     status: method({
-      GET: [validate, status],
+      GET: [status],
     }),
     email: method({
       GET: [email],
     }),
-    test: method({
-      GET: [validate, status],
-    }),
   },
 })
-
-export async function email(ctx: Context, next: () => Promise<any>) {
-  const {
-    vtex: {
-      route: { params },
-    },
-  } = ctx
-
-  console.info('Received params:', params)
-
-  const { code } = params
-
-  if (!code) {
-    throw new UserInputError('Code is required') // Wrapper for a Bad Request (400) HTTP Error. Check others in https://github.com/vtex/node-vtex-api/blob/fd6139349de4e68825b1074f1959dd8d0c8f4d5b/src/errors/index.ts
-  }
-
-  ctx.body = {
-    respuesta: 'saltar',
-  }
-
-  await next()
-}
