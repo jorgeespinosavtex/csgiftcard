@@ -11,7 +11,7 @@ export default class Status extends ExternalClient {
   }
 
   public async getStatus(status: number): Promise<string> {
-    return this.http.get(`giftcard/${status.toString()}`, {
+    return this.http.get(`/giftcard/${status.toString()}`, {
       metric: 'status-get',
     })
   }
