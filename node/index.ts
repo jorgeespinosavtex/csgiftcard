@@ -1,10 +1,9 @@
-import https from 'https'
-
 import type { ClientsConfig, ServiceContext, RecorderState } from '@vtex/api'
 import { LRUCache, method, Service, UserInputError } from '@vtex/api'
 
 import { Clients } from './clients'
 import { status } from './middlewares/status'
+import { test } from './middlewares/test'
 import { validate } from './middlewares/validate'
 
 const TIMEOUT_MS = 800
@@ -53,6 +52,9 @@ export default new Service({
     email: method({
       GET: [email],
     }),
+    test: method({
+      GET: [test],
+    }),
   },
 })
 
@@ -71,19 +73,8 @@ export async function email(ctx: Context, next: () => Promise<any>) {
     throw new UserInputError('Code is required') // Wrapper for a Bad Request (400) HTTP Error. Check others in https://github.com/vtex/node-vtex-api/blob/fd6139349de4e68825b1074f1959dd8d0c8f4d5b/src/errors/index.ts
   }
 
-  try {
-    const valor = await https.get(
-      'https://2ec5f9c9-c085-4dd0-acd4-06aa6c59c8ad.mock.pstmn.io/giftcard/1234567890'
-    )
-
-    ctx.body = {
-      perrito: 'guau',
-      respuesta: valor,
-    }
-  } catch (e) {
-    ctx.body = {
-      respuesta: 'saltar',
-    }
+  ctx.body = {
+    respuesta: 'saltar',
   }
 
   await next()
