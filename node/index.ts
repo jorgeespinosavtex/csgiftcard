@@ -56,7 +56,7 @@ export default new Service({
       GET: [email],
     }),
     test: method({
-      GET: [status],
+      GET: [validate, status],
     }),
   },
 })
