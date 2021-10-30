@@ -6,7 +6,7 @@ export async function status(ctx: Context, next: () => Promise<any>) {
 
   console.info('Received code:', code)
 
-  const statusResponse = await statusClient.getStatus(code)
+  const statusResponse = await statusClient.getStatus()
 
   console.info('Status response:', statusResponse)
 
@@ -14,7 +14,7 @@ export async function status(ctx: Context, next: () => Promise<any>) {
     headers,
     data,
     status: responseStatus,
-  } = await statusClient.getStatusWithHeaders(code)
+  } = await statusClient.getStatusWithHeaders()
 
   console.info('Status headers', headers)
   console.info('Status data:', data)
