@@ -51,11 +51,10 @@ export class Email extends ExternalClient {
       `Export/GenerateExport`,
       JSON.stringify({
         selectedFields:
-          'clientName&clientRut&companyRut&creationDate&giftcardAmount&giftcardDeliveryType&giftcardQuantity&giftcardRestriction&giftcardTaxes&orderNumber',
+          'clientName,clientRut,companyRut,creationDate,giftcardAmount,giftcardDeliveryType,giftcardQuantity,giftcardRestriction,giftcardTaxes,orderNumber',
         idDataEntity: 'GD',
         fullText: '',
-        searchQuery: '',
-        customSearchId: '',
+        searchQuery: 'orderNumber=100000000',
         recipients: 'jorge.espinosa@vtex.com.br',
       }),
       {
@@ -71,18 +70,22 @@ export class Email extends ExternalClient {
   }
 
   public async getEmailWithHeaders(): Promise<IOResponse<string>> {
+    const agent = new https.Agent({
+      rejectUnauthorized: false,
+    })
+
     return this.http.postRaw(
       `Export/GenerateExport`,
       JSON.stringify({
         selectedFields:
-          'clientName&clientRut&companyRut&creationDate&giftcardAmount&giftcardDeliveryType&giftcardQuantity&giftcardRestriction&giftcardTaxes&orderNumber',
+          'clientName,clientRut,companyRut,creationDate,giftcardAmount,giftcardDeliveryType,giftcardQuantity,giftcardRestriction,giftcardTaxes,orderNumber',
         idDataEntity: 'GD',
         fullText: '',
-        searchQuery: '',
-        customSearchId: '',
+        searchQuery: 'orderNumber=100000000',
         recipients: 'jorge.espinosa@vtex.com.br',
       }),
       {
+        httpsAgent: agent,
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
           Cookie:
