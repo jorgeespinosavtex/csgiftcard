@@ -37,7 +37,7 @@ export default class Status extends ExternalClient {
 
 export class Email extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
-    super('https://decorest.vtexcrm.com.br', context, options)
+    super('http://decorest.vtexcrm.com.br', context, options)
   }
 
   public async getEmail(): Promise<string> {
