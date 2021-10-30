@@ -13,6 +13,7 @@ const TIMEOUT_MS = 800
 const memoryCache = new LRUCache<string, any>({ max: 5000 })
 
 metrics.trackCache('status', memoryCache)
+metrics.trackCache('test', memoryCache)
 
 // This is the configuration for clients available in `ctx.clients`.
 const clients: ClientsConfig<Clients> = {
@@ -26,6 +27,9 @@ const clients: ClientsConfig<Clients> = {
     },
     // This key will be merged with the default options and add this cache to our Status client.
     status: {
+      memoryCache,
+    },
+    test: {
       memoryCache,
     },
   },
