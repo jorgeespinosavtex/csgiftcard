@@ -43,7 +43,15 @@ export class Email extends ExternalClient {
   public async getEmail(): Promise<string> {
     return this.http.post(
       `Export/GenerateExport`,
-      'selectedFields=clientName%2CclientRut%2CcompanyRut%2CcreationDate%2CgiftcardAmount%2CgiftcardDeliveryType%2CgiftcardQuantity%2CgiftcardRestriction%2CgiftcardTaxes%2CorderNumber&idDataEntity=GD&fullText=&searchQuery=&customSearchId=&recipients=jorge.espinosa%40vtex.com.br',
+      JSON.stringify({
+        selectedFields:
+          'clientName&clientRut&companyRut&creationDate&giftcardAmount&giftcardDeliveryType&giftcardQuantity&giftcardRestriction&giftcardTaxes&orderNumber',
+        idDataEntity: 'GD',
+        fullText: '',
+        searchQuery: '',
+        customSearchId: '',
+        recipients: 'jorge.espinosa@vtex.com.br',
+      }),
       {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -58,14 +66,22 @@ export class Email extends ExternalClient {
   public async getEmailWithHeaders(): Promise<IOResponse<string>> {
     return this.http.postRaw(
       `Export/GenerateExport`,
-      'selectedFields=clientName%2CclientRut%2CcompanyRut%2CcreationDate%2CgiftcardAmount%2CgiftcardDeliveryType%2CgiftcardQuantity%2CgiftcardRestriction%2CgiftcardTaxes%2CorderNumber&idDataEntity=GD&fullText=&searchQuery=&customSearchId=&recipients=jorge.espinosa%40vtex.com.br',
+      JSON.stringify({
+        selectedFields:
+          'clientName&clientRut&companyRut&creationDate&giftcardAmount&giftcardDeliveryType&giftcardQuantity&giftcardRestriction&giftcardTaxes&orderNumber',
+        idDataEntity: 'GD',
+        fullText: '',
+        searchQuery: '',
+        customSearchId: '',
+        recipients: 'jorge.espinosa@vtex.com.br',
+      }),
       {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
           Cookie:
             'VtexIdclientAutCookie=eyJhbGciOiJFUzI1NiIsImtpZCI6IkE5MDZFOTlFRkUwNjVCMDdDOEMzNzY2RjU5RDE2QzBCMkMzNDA0MjEiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJ2dGV4YXBwa2V5LWRlY29yZXN0LVZJV0FEViIsImFjY291bnQiOiJ2dGV4IiwiYXVkaWVuY2UiOiJhZG1pbiIsImV4cCI6MTYzNTU4MjMzMywidXNlcklkIjoiNDI0MmY3ZmUtNjFkOC00MzY2LThiZDAtZGI1YWNmMzk5YTZmIiwiaWF0IjoxNjM1NTYwNzMzLCJpc3MiOiJ0b2tlbi1lbWl0dGVyIiwianRpIjoiNTNmM2M1YTAtNzg4ZC00NTU1LWFjYTMtNzEwMDU1YmIwMTA2In0.icJCEtTrrayXYGvM947d1LIask8WqBbr3VxSKxx5epxfeqrLp-5pyLIWgulDTd9cOiMw1SqEAYaAmXzpufnSlw;',
         },
-        metric: 'email-raw-post',
+        metric: 'email-post',
       }
     )
   }
