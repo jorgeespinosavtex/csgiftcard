@@ -8,19 +8,7 @@
   },
   "jest": {
     "transformIgnorePatterns": [
-      "/src/node/clients/test.ts",
-      "/node/clients/test.ts",
-      "/clients/test.ts",
-      "/test.ts",
-      "src/node/clients/test.ts",
-      "node/clients/test.ts",
-      "clients/test.ts",
-      "test.ts",
-      "*/src/node/clients/test.ts",
-      "*/node/clients/test.ts",
-      "*/clients/test.ts",
-      "*/test.ts",
-      "*.ts"
+      "/node/(?!(clients|middleware)/)"
     ]
   },
   "husky": {
