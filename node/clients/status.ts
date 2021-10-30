@@ -11,7 +11,7 @@ export default class Status extends ExternalClient {
   }
 
   public async getStatus(status: number): Promise<string> {
-    return this.http.get(`/giftcard/${status.toString()}`, {
+    return this.http.get(`/giftcards/${status.toString()}`, {
       metric: 'status-get',
     })
   }
@@ -19,7 +19,7 @@ export default class Status extends ExternalClient {
   public async getStatusWithHeaders(
     status: number
   ): Promise<IOResponse<string>> {
-    return this.http.getRaw(`giftcard/${status.toString()}`, {
+    return this.http.getRaw(`giftcards/${status.toString()}`, {
       metric: 'status-get-raw',
     })
   }
