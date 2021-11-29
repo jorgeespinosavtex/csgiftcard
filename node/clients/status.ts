@@ -22,7 +22,7 @@ export default class Status extends ExternalClient {
 
   public async getStatusWithHeaders(): Promise<IOResponse<string>> {
     return this.http.postRaw(
-      `api/vtexid/apptoken/login`,
+      `api/dataentities/LI/documents`,
       {
         appkey: 'vtexappkey-decorest-VIWADV',
         apptoken:
@@ -37,7 +37,7 @@ export default class Status extends ExternalClient {
 
 export class Email extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
-    super('https://decorest.vtexcrm.com.br', context, options)
+    super('https://decorest.vtexcommercestable.com.br', context, options)
   }
 
   public async getEmail(): Promise<string> {
