@@ -3,12 +3,12 @@ import { ExternalClient } from '@vtex/api'
 
 export default class Status extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
-    super('https://vtexid.vtexcommercestable.com.br', context, options)
+    super('https://decorest.vtexcommerstable.com.br', context, options)
   }
 
   public async getStatus(): Promise<string> {
     return this.http.post(
-      `api/vtexid/apptoken/login`,
+      `api/dataentities/LI/documents`,
       {
         appkey: 'vtexappkey-decorest-VIWADV',
         apptoken:
@@ -42,24 +42,20 @@ export class Email extends ExternalClient {
 
   public async getEmail(): Promise<string> {
     return this.http.post(
-      `Export/GenerateExport`,
+      `api/dataentities/LI/documents`,
       JSON.stringify({
-        selectedFields:
-          'clientName,clientRut,companyRut,creationDate,giftcardAmount,giftcardDeliveryType,giftcardQuantity,giftcardRestriction,giftcardTaxes,orderNumber',
-        idDataEntity: 'GD',
-        fullText: '',
-        searchQuery: 'orderNumber=100000000',
-        recipients: 'jorge.espinosa@vtex.com.br',
+        device: 'test-2',
+        email: 'arima121@hotmail.com',
+        loginToken: 'log-jwt',
+        refreshToken: 'ref-jwt',
       }),
       {
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          'Content-Type': 'application/json; charset=UTF-8',
           'X-VTEX-Use-Https': true,
-          'Proxy-Authorization': this.context.authToken,
-          Connection: 'keep-alive',
-          'X-Requested-With': 'XMLHttpRequest',
-          Cookie:
-            'VtexIdclientAutCookie=eyJhbGciOiJFUzI1NiIsImtpZCI6IjU4QTlBODhENDBBMkZBN0U4NzQwQTU5MzFFREUwRUFGMEMxN0E4RTMiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJ2dGV4YXBwa2V5LWRlY29yZXN0LVZJV0FEViIsImFjY291bnQiOiJ2dGV4IiwiYXVkaWVuY2UiOiJhZG1pbiIsImV4cCI6MTYzNTYzMDA3MiwidXNlcklkIjoiNDI0MmY3ZmUtNjFkOC00MzY2LThiZDAtZGI1YWNmMzk5YTZmIiwiaWF0IjoxNjM1NjA4NDcyLCJpc3MiOiJ0b2tlbi1lbWl0dGVyIiwianRpIjoiZjgwZmMwYmItN2FkZC00YzZjLTlkNGEtYjQ2Y2ZhMmE5NWQ1In0.BvBGXbQiPJ1IGoEr7t3OYGol6NkfI_Q5QOE-g7nJKjMYdfb6isVMv0ldA5Kt5PG6z_1s46XD61S4wq58vTuW2w;',
+          'X-VTEX-API-AppKey': 'vtexappkey-decorest-VIWADV',
+          'X-VTEX-API-AppToken':
+            'JPMYKRDOKBBCPIVDDWMQASZPVQSHFCMFLECUMPMEWFCNUXTWWLMNVLTRPXDUYVIHOWQLFARNJHTUQMVXWVKUPZJAKLEOMSGBXUZXGIRVUZDOSYADCFXCKOSPMQATVCBQV',
         },
         metric: 'email-post',
       }
@@ -68,26 +64,22 @@ export class Email extends ExternalClient {
 
   public async getEmailWithHeaders(): Promise<IOResponse<string>> {
     return this.http.postRaw(
-      `Export/GenerateExport`,
+      `api/dataentities/LI/documents`,
       JSON.stringify({
-        selectedFields:
-          'clientName,clientRut,companyRut,creationDate,giftcardAmount,giftcardDeliveryType,giftcardQuantity,giftcardRestriction,giftcardTaxes,orderNumber',
-        idDataEntity: 'GD',
-        fullText: '',
-        searchQuery: 'orderNumber=100000000',
-        recipients: 'jorge.espinosa@vtex.com.br',
+        device: 'test-2',
+        email: 'arima121@hotmail.com',
+        loginToken: 'log-jwt',
+        refreshToken: 'ref-jwt',
       }),
       {
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+          'Content-Type': 'application/json; charset=UTF-8',
           'X-VTEX-Use-Https': true,
-          'Proxy-Authorization': this.context.authToken,
-          Connection: 'keep-alive',
-          'X-Requested-With': 'XMLHttpRequest',
-          Cookie:
-            'VtexIdclientAutCookie=eyJhbGciOiJFUzI1NiIsImtpZCI6IjU4QTlBODhENDBBMkZBN0U4NzQwQTU5MzFFREUwRUFGMEMxN0E4RTMiLCJ0eXAiOiJqd3QifQ.eyJzdWIiOiJ2dGV4YXBwa2V5LWRlY29yZXN0LVZJV0FEViIsImFjY291bnQiOiJ2dGV4IiwiYXVkaWVuY2UiOiJhZG1pbiIsImV4cCI6MTYzNTYzMDA3MiwidXNlcklkIjoiNDI0MmY3ZmUtNjFkOC00MzY2LThiZDAtZGI1YWNmMzk5YTZmIiwiaWF0IjoxNjM1NjA4NDcyLCJpc3MiOiJ0b2tlbi1lbWl0dGVyIiwianRpIjoiZjgwZmMwYmItN2FkZC00YzZjLTlkNGEtYjQ2Y2ZhMmE5NWQ1In0.BvBGXbQiPJ1IGoEr7t3OYGol6NkfI_Q5QOE-g7nJKjMYdfb6isVMv0ldA5Kt5PG6z_1s46XD61S4wq58vTuW2w;',
+          'X-VTEX-API-AppKey': 'vtexappkey-decorest-VIWADV',
+          'X-VTEX-API-AppToken':
+            'JPMYKRDOKBBCPIVDDWMQASZPVQSHFCMFLECUMPMEWFCNUXTWWLMNVLTRPXDUYVIHOWQLFARNJHTUQMVXWVKUPZJAKLEOMSGBXUZXGIRVUZDOSYADCFXCKOSPMQATVCBQV',
         },
-        metric: 'email-post',
+        metric: 'email-post-raw',
       }
     )
   }
