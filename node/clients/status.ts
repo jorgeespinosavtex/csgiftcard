@@ -3,7 +3,7 @@ import { ExternalClient } from '@vtex/api'
 
 export default class Status extends ExternalClient {
   constructor(context: IOContext, options?: InstanceOptions) {
-    super('https://decorest.vtexcommerstable.com.br', context, options)
+    super('https://decorest.vtexcommercestable.com.br', context, options)
   }
 
   public async getStatus(): Promise<string> {
